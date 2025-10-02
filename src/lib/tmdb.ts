@@ -2,7 +2,7 @@ import { TMDBResponse } from "@/types/movie";
 
 // TMDB API key - Note: TMDB allows client-side API keys as they're designed for public use
 // In production, you should add domain restrictions in your TMDB account settings
-const API_KEY = "0317936f12106a620c37d84c56c20e57";
+const API_KEY =import.meta.env.VITE_TMDB_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
 
