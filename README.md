@@ -13,9 +13,9 @@ MovieHub is a web application that allows users to **discover popular movies**, 
 ## Tech Stack
 
 * **Frontend:** React / TypeScript / Vite
-* **Styling:** CSS / Tailwind CSS (if used)
-* **State Management:** React Context or Redux (if used)
-* **Deployment:** GitHub Pages / Vercel / Netlify
+* **Styling:** CSS / Tailwind CSS 
+* **State Management:** React Context 
+* **Deployment:** Netlify
 
 ## Installation
 
