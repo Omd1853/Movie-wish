@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 20% 6%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 18% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 18% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 348 90% 55%;
+    --primary-hover: 348 90% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 18% 14%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 18% 16%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 280 70% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 18% 18%;
+    --input: 220 18% 16%;
+    --ring: 348 90% 55%;
+
+    --radius: 0.875rem;
+
+    /* Advanced gradients */
+    --gradient-bg: linear-gradient(135deg, hsl(220 20% 6%) 0%, hsl(220 18% 10%) 50%, hsl(220 16% 8%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(348 90% 55% / 0.1) 0%, transparent 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220 18% 12%) 0%, hsl(220 18% 10%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(348 90% 55%) 0%, hsl(348 90% 65%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(280 70% 60%) 0%, hsl(320 80% 65%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(220 18% 16% / 0.5) 0%, hsl(220 18% 12% / 0.3) 100%);
+    
+    /* Advanced shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(220 20% 4% / 0.4);
+    --shadow-md: 0 4px 16px -4px hsl(220 20% 4% / 0.5);
+    --shadow-lg: 0 8px 32px -8px hsl(220 20% 4% / 0.6);
+    --shadow-xl: 0 16px 48px -12px hsl(220 20% 4% / 0.7);
+    --shadow-card: 0 8px 24px -4px hsl(220 18% 4% / 0.5);
+    --shadow-card-hover: 0 16px 48px -8px hsl(348 90% 55% / 0.4);
+    --shadow-glow: 0 0 48px -12px hsl(348 90% 55% / 0.6);
+    --shadow-primary: 0 8px 32px -8px hsl(348 90% 55% / 0.5);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background: var(--gradient-bg);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl;
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h3 {
+    @apply text-3xl md:text-4xl;
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2;
+  }
+
+  .hover-glow {
+    @apply transition-shadow duration-300;
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-secondary/30;
+    border-radius: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-primary/50;
+    border-radius: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+}
